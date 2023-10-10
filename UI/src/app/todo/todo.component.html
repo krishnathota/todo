@@ -1,0 +1,34 @@
+<div class="flex column full">
+  <mat-form-field>
+    <mat-label>Add a new todo</mat-label>
+    <input #todoInput matInput type="text" [(ngModel)]="newTodo" />
+    <button
+      matSuffix
+      mat-icon-button
+      [disabled]="!todoInput.value"
+      aria-label="Add"
+      color="primary"
+      (click)="addTodo()"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <div class="empty-todo flex full v-center h-center" *ngIf="!todos.length">
+    Add your first todo
+  </div>
+  <app-list
+    [todos]="todos | filterStatus: false"
+    [isCompleted]="false"
+    (delete$)="deleteTodo($event)"
+  ></app-list>
+
+  <div class="flex column" *ngIf="(todos | filterStatus: true).length">
+    <mat-label class="completed-label">Completed</mat-label>
+    <app-list
+      [todos]="todos | filterStatus: true"
+      [isCompleted]="true"
+      (delete$)="deleteTodo($event)"
+    ></app-list>
+  </div>
+</div>

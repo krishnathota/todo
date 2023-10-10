@@ -1,0 +1,8 @@
+{
+  "serviceUrl": "http://localhost:3000",
+  "todos": "/todos",
+  "snackBarConfig": {
+    "duration": 2000,
+    "horizontalPosition": "right"
+  }
+}

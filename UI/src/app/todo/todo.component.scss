@@ -1,0 +1,22 @@
+:host {
+  width: 500px;
+  padding: 20px;
+  display: flex;
+}
+
+.completed-task {
+  text-decoration: line-through;
+  color: grey;
+}
+
+.empty-todo {
+  font-size: 25px;
+  color: #ccc;
+}
+
+.completed-label {
+  padding: 10px 0 5px 0;
+  line-height: 30px;
+  font-size: 18px;
+  color: var(--mdc-filled-text-field-label-text-color);
+}

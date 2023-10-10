@@ -1,0 +1,29 @@
+<!--  [cdkDropListDisabled]="isCompleted"-->
+<div
+  cdkDropList
+  [cdkDropListData]="todos"
+  class="todo-list"
+  [class.completed]="isCompleted"
+  *ngIf="todos.length"
+  (cdkDropListDropped)="listItemDropped($event)"
+>
+  <div cdkDrag class="todo-item" *ngFor="let todo of todos">
+    <div class="todo-box">
+      <mat-icon cdkDragHandle aria-label="Drag"> drag_handle</mat-icon>
+      <mat-checkbox
+        [checked]="todo.completed"
+        color="primary"
+        (change)="statusChange($event, todo)"
+      ></mat-checkbox>
+      <span [class.completed-task]="todo.completed">{{ todo.task }}</span>
+    </div>
+    <button
+      mat-icon-button
+      color="warn"
+      aria-label="Example icon button with a heart icon"
+      (click)="deleteTodo(todo?._id)"
+    >
+      <mat-icon aria-label="Delete">delete</mat-icon>
+    </button>
+  </div>
+</div>
