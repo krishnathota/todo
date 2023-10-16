@@ -6,7 +6,7 @@ const app = express();
 const PORT = 3000;
 
 // Connect to MongoDB
-mongoose.connect("mongodb://todo:todo@localhost:27017/todoapp", {
+mongoose.connect("mongodb://todo:todo@localhost:2717/todoapp", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -81,7 +81,7 @@ app.put("/todos/:id", async (req, res) => {
     const updatedTodo = await Todo.findOneAndUpdate(
       { _id: id },
       { $set: { task, completed } },
-      { new: true }, // Return the updated document
+      { new: true } // Return the updated document
     );
 
     if (updatedTodo) {
